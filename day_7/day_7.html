@@ -17,7 +17,7 @@
 </head>
 <body>
     <h2>Form  Validation</h2>
-    <form action="">
+    <form action="" onsubmit="return ValidateForm()">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"><br>
         <div id="name_required" class="error">
@@ -42,7 +42,7 @@
             
         </div><br><br>
 
-        <button type="submit" onclick="ValidateForm()">Submit</button>
+        <button type="submit">Submit</button>
     </form>
     <script>
         function Validation(name){
@@ -96,11 +96,11 @@
             if(phoneError === "Phone number is valid." && emailError === "Email is valid." && passwordError === "Password is valid." && nameError === "Name is valid.") {
                 return true;
             }
-            document.getElementById("name_required").innerText = nameError;
-            document.getElementById("PhoneNumber_required").innerText = phoneError;   
-            document.getElementById("Email_required").innerText = emailError;
-            document.getElementById("Password_required").innerText = passwordError;
-
+            document.getElementById("name_required").innerText= nameError==="is valid" ? " " :nameError;
+            document.getElementById("PhoneNumber_required").innerText= phoneError==="is valid" ? " " :phoneError;
+            document.getElementById("Email_required").innerText= emailError==="is valid" ? " " :emailError;
+            document.getElementById("Password_required").innerText= passwordError==="is valid" ? " " :passwordError;
+            return false;
         }
     </script>
 </body>
