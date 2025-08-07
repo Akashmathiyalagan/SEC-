@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day_7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form  Validation</h2>
+    <form action="">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <div id="name_required" class="error">
+           
+
+        </div><br><br>
+        <label for="PhoneNumber">PhoneNumber:</label>
+        <input type="tel" id="PhoneNumber" name="PhoneNumber"><br>
+        <div id="PhoneNumber_required" class="error">
+            
+        </div><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <div id="Email_required" class="error">
+                
+        </div><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>  
+        <div id="Password_required" class="error">
+            
+        </div><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function Validation(name){
+            const regex = /^[a-zA-Z]+$/;
+            if(name.trim()===""){
+                return "Name is required.";
+            }
+            if(!regex.test(name)){
+                return "Name must contain only letters.";
+            }
+        }
+        function PhoneNumberValidation(phoneNumber){
+            const regex = /^[0-9]{10}$/;
+            if(phoneNumber.trim()===""){
+                return "Phone number is required.";
+            }
+            if(!regex.test(phoneNumber)){
+                return "Phone number must be 10 digits.";
+            }
+        }
+        function EmailValidation(email){
+            const regex = /^[^a-zA-Z0-9./+_-]+@[^a-zA-Z]+\.[^a-zA-Z@]+$/;
+            if(email.trim()===""){
+                return "Email is required.";
+            }
+            if(!regex.test(email)){
+                return "Invalid email format.";
+            }
+        }
+        function PasswordValidation(password){
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}$/;
+            if(password.trim()===""){
+                return "Password is required.";
+            }
+        }
+        function ValidateForm(){
+            
+        }
+    </script>
+</body>
+</html>
