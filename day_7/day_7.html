@@ -42,7 +42,7 @@
             
         </div><br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" onclick="ValidateForm()">Submit</button>
     </form>
     <script>
         function Validation(name){
@@ -53,15 +53,17 @@
             if(!regex.test(name)){
                 return "Name must contain only letters.";
             }
+            return "Name is valid.";
         }
-        function PhoneNumberValidation(phoneNumber){
+        function PhoneNumberValidation(PhoneNumber){
             const regex = /^[0-9]{10}$/;
-            if(phoneNumber.trim()===""){
+            if(PhoneNumber.trim()===""){
                 return "Phone number is required.";
             }
-            if(!regex.test(phoneNumber)){
+            if(!regex.test(PhoneNumber)){
                 return "Phone number must be 10 digits.";
             }
+            return "Phone number is valid.";
         }
         function EmailValidation(email){
             const regex = /^[^a-zA-Z0-9./+_-]+@[^a-zA-Z]+\.[^a-zA-Z@]+$/;
@@ -71,15 +73,34 @@
             if(!regex.test(email)){
                 return "Invalid email format.";
             }
+            return "Email is valid.";
         }
         function PasswordValidation(password){
             const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}$/;
             if(password.trim()===""){
                 return "Password is required.";
             }
+            return "Password is valid.";
         }
         function ValidateForm(){
-            
+            let name = document.getElementById("name").value;
+            let phoneNumber = document.getElementById("PhoneNumber").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let nameError = Validation(name);
+            let phoneError = PhoneNumberValidation(phoneNumber); 
+            let emailError = EmailValidation(email);
+            let passwordError = PasswordValidation(password);
+
+            if(phoneError === "Phone number is valid." && emailError === "Email is valid." && passwordError === "Password is valid." && nameError === "Name is valid.") {
+                return true;
+            }
+            document.getElementById("name_required").innerText = nameError;
+            document.getElementById("PhoneNumber_required").innerText = phoneError;   
+            document.getElementById("Email_required").innerText = emailError;
+            document.getElementById("Password_required").innerText = passwordError;
+
         }
     </script>
 </body>
