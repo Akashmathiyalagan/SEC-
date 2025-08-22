@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+       .removebtn{
+        margin-left: 10px;
+        background-color: aquamarine;
+       }
+       .removebtn:hover{
+        cursor: pointer;
+       }
+    </style>
 </head>
 <body>
     <input type="text" id="inputvalue" placeholder="Enter the list">
@@ -19,6 +28,7 @@
             document.getElementById("listcontent").appendChild(li);
             const removebtn=document.createElement("button");
             removebtn.textContent="remove";
+            removebtn.className="removebtn";
             removebtn.addEventListener("click",function(e){
                 li.remove();
             })
