@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            margin-top:20%;
+            text-align: center;
+        }
+        #clock{
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid aqua;
+            color: beige;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+
+    </div>
+    <script>
+        function time(){
+        const now=new Date();
+        let hour=now.getHours();
+        let min=now.getMinutes();
+        let sec=now.getSeconds();
+        let ampm=hour>=12 ? 'PM':'AM'; 
+        hour=hour % 12;
+        hour=hour ? hour:12;
+        const hh=String(hour).padStart(2,'0');
+        const mm=String(min).padStart(2,'0');
+        const ss=String(sec).padStart(2,'0');
+        const timeString=`${hh}:${mm}:${ss} ${ampm}`;
+        document.getElementById("clock").innerText=timeString;
+        }
+        time();
+        setInterval(time,1000);
+    </script>
+</body>
+</html>
