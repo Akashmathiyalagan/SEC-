@@ -1,0 +1,77 @@
+<!-- Set in javaScript
+    Defination:
+    A set is a collection of uique values. IT automaticaly removes duplicates.
+    
+    SYNTAX:
+        let mySet=newSet([iterable]);
+    ->iterable==optional,like array
+-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+          let email=new Set([]);//set() is a constractor it is not a method
+          email.add("akash@gmail.com");
+          email.add("123@gmail.com");
+          email.add("321@gmail.com");
+          console.log(email);
+          for(let MailId of email){
+            console.log(MailId);
+          }
+          email.forEach(x=>{
+            console.log(x)
+          })
+          email.delete("123@gmail.com");
+          console.log(email);
+          email.clear()
+          console.log(email)
+          let admin=new Set(["read","write","delete"]);
+          let user=new Set(["read"]);
+
+          function haspermission(role,permission){
+            return role.has(permission)
+          }
+          console.log(haspermission(admin,"delete"));
+          console.log(haspermission(user,"delete"));
+
+          let setA= new Set([1,2,3,4,5,6,1]);
+          let setB=new Set([6,7,8,9,1])
+          let result=new Set([...setA,...setB]);//... seperate function
+          console.log(result)
+          let intersection=new Set([...setA].filter(x=>setB.has(x)))
+          console.log(intersection);
+          let diff=new Set([...setA].filter(x=>!setB.has(x)));
+          console.log(diff);
+
+          //2.Entries()
+          //->> Return a new inerator object with[value,value]pairs.
+          //->> This is because a Set has no seperate keys-only values.
+          let fruits=new Set(["Apple","Banana"]);
+          let Entries=fruits.entries();
+          console.log(Entries);
+        //   WeakMap
+        //   A JavaScript Weakmap is a collection of key/value pairs
+        //   where the keys must be objective
+
+        let user1={
+            name:"java"
+        }
+        let user2={
+            name:"python"
+        }
+        let mymap=new WeakMap();// in weak map itteration is not possible WeakMap()
+        mymap.set(user1,"Welcome");// its only key
+        mymap.set(user2,"welcome python!")
+        console.log(mymap);
+        
+        // for(let map of mymap){
+        //     console.log(map);
+        // }
+        </script>
+    </body>
+    </html>
