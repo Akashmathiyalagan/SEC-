@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="slider">
+        <img src="image1.jfif" alt="image1" id="photobox" class="image-slider">
+        <button id="Next">Next</button>
+        <button id="Previous">Previous</button>
+    </div>
+    <script>
+
+        let images=["image1.jfif","image2.jfif"];
+        //console.log(numbers.length)
+        let currentIndex=0
+        let PhotoBox=document.getElementById("photobox");
+        let NextBtn=document.getElementById("Next");
+        let PreviousBtn=document.getElementById("Previous");
+
+        NextBtn.addEventListener("click",()=>{
+            currentIndex=(currentIndex + 1) % images.length;
+            PhotoBox.src=images[currentIndex];
+        })
+        PreviousBtn.addEventListener("click",()=>{
+            currentIndex=(currentIndex -1 + images.length)% images.length;
+            PhotoBox.src=images[currentIndex];
+        })
+        setInterval(()=>{
+            currentIndex=(currentIndex+1)%images.length;
+            PhotoBox.src=images[currentIndex];
+        },2000)
+    </script>
+</body>
+</html>
