@@ -1,54 +1,37 @@
 const myData = [
     {
-        name:"Dharaneesh",
+        name:"Akash",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Naveen",
+        name:"Prasanna",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Priya",
+        name:"Aditya",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Priya",
+        name:"Saran",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Dharaneesh",
+        name:"Aishwarya",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Naveen",
+        name:"Sobika",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Priya",
+        name:"Priyadharasan",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
     {
-        name:"Priya",
+        name:"Priyadharshini",
         image:"https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg"
     },
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -59,22 +42,11 @@ for(let i=0;i<myData.length;i++)
 {
     con.innerHTML+=`
     <div class='card'>
-    <h1>${myData[i].name}</h1>
     <img src=${myData[i].image} height="100px" />
+    <p>${myData[i].name}</p>
     </div>
     `
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -90,7 +62,7 @@ fetch('https://fakestoreapi.com/products')
     con.innerHTML+=`
     <div class='card'>
     <img src=${data[i].image} height="100px" />
-    <h1>${data[i].id}</h1>
+    <p>${data[i].id}</p>
     </div>
     `
 }    
